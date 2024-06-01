@@ -16,45 +16,23 @@ function getHumanChoice() {
   return humanChoice;
 }
 
-function playRound(humanChoice, computerChoice) {
-  if (humanChoice == "paper" && computerChoice == "rock") {
-    humanScore++;
-    console.log(
-      `You chose ${humanChoice} and the computer chose ${computerChoice}, !You Win!`
-    );
-  } else if (humanChoice == "paper" && computerChoice == "paper") {
-    console.log(`Both of you chose "paper", so nobody wins`);
-  } else if (humanChoice == "paper" && computerChoice == "scissors") {
-    computerScore++;
-    console.log(
-      `You chose ${humanChoice} and computer chose ${computerChoice}, !Computer Wins!`
-    );
-  } else if (humanChoice == "rock" && computerChoice == "paper") {
-    computerScore++;
-    console.log(
-      `You chose ${humanChoice} and the computer chose ${computerChoice}, !Computer Wins!`
-    );
-  } else if (humanChoice == "rock" && computerChoice == "scissors") {
-    humanScore++;
-    console.log(
-      `You chose ${humanChoice} and computer chose ${computerChoice}, !You Win!`
-    );
-  } else if (humanChoice == "rock" && computerChoice == "rock") {
-    console.log(`Both of you chose rock, so nobody wins`);
-  } else if (humanChoice == "scissors" && computerChoice == "paper") {
-    humanScore++;
-    console.log(
-      `You chose ${humanChoice} and computer chose ${computerChoice}, !You Win!`
-    );
-  } else if (humanChoice == "scissors" && computerChoice == "scissors") {
-    console.log(`Both of you chose scissors, so nobody wins`);
-  } else if (humanChoice == "scissors" && computerChoice == "rock") {
-    computerScore++;
-    console.log(
-      `You chose ${humanChoice} and computer chose ${computerChoice}, !Computer Wins!`
-    );
-  }
+const objetoAyuda = {
+  "rock": "paper",
+  "paper": "scissors",
+  "scissors": "rock"
 }
+
+if (objetoAyuda[humanChoice] == computerChoice ){
+  computerScore++;
+  console.log(
+    `You chose ${humanChoice} and the computer chose ${computerChoice}, !Computer Wins!` 
+  )
+  } else if (objetoAyuda[computerChoice] == humanChoice){
+    humanScore++;
+    console.log(`You chose ${humanChoice} and the computer chose ${computerChoice}, !You Win!`)
+  } else if (humanChoice == computerChoice) {
+    console.log(`Both of you chose ${humanChoice}, so nobody wins`);
+  } 
 
 function playGame() {
   humanScore = 0;
